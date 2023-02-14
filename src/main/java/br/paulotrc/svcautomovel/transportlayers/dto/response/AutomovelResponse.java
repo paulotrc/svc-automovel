@@ -15,16 +15,12 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AutomovelResponse {
 
-    private UUID id = UUID.randomUUID();
-    private String cpf; //Documento de identificação do dono do automóvel
-    private String cep;
+    private UUID id;
+    private String cpf; //Documento de identificação do dono do automovel
+    private String placa;
     private String estado;
     private String cidade;
-    private String bairro;
-    private String endereco;
-    private String numero;
-    private String complemento;
-    private String referencia;
+    private Boolean financiado;
     private LocalDate dataCompra;
     private LocalDate dataFimContrato;
     private LocalDate dataQuitacao;

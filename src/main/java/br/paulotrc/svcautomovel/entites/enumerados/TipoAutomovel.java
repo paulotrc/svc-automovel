@@ -2,9 +2,12 @@ package br.paulotrc.svcautomovel.entites.enumerados;
 
 public enum TipoAutomovel {
 
-    CASA,
-    APARTAMENTO,
-    FLAT,
-    KITNET,
-    GALPAO;
+    CARRO,
+    MOTO,
+    SUV,
+    CAMINHONETE,
+    VAN,
+    CAMINHAO,
+    CARRETINHA,
+    ONIBUS;
 }

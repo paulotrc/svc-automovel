@@ -1,11 +1,11 @@
 package br.paulotrc.svcautomovel.entites.enumerados;
 
 public enum TipoRestricaoAutomovel {
-    DIVIDA("Dívida"),
+    IMPOSTO_ATRASADO("Imposto Atrasado"),
     SITUACAO_CADASTRAL("Situação Cadastral"),
-    CPF_CANCELADO("CPF Cancelado"),
-    CPF_PENDENTE("CPF Pendente"),
-    CPF_NULO("CPF Nulo");
+    FURTADO("Furtado"),
+    PERDA_TOTAL("Perda Total"),
+    MULTA("Com Multas");
 
     private String descricao;
 

@@ -25,18 +25,12 @@ public class AutomovelRequest {
     @NotBlank(message = "CPF é obrigatório")
     private String cpf; //Documento de identificação do dono do automóvel
 
-    @NotBlank(message = "Cep é obrigatório")
-    @Pattern(regexp = "^\\d{1,5}-\\d{1,3}$", message = "Cep inválido, utilize o seguinte formato: 99999-99.")
-    private String cep;
+    @NotBlank(message = "Placa é obrigatório")
+    @Pattern(regexp = "^([a-zA-Z]{2}|[a-zA-Z]{3})[0-9][A-Za-z0-9][0-9]{2}$", message = "Placa inválida, utilize os seguintes formatos: (AA9999|AAA9999|AAA9A99).")
+    private String placa;
     private String estado;
     private String cidade;
-    private String bairro;
-    private String endereco;
-    @NotBlank(message = "Número é obrigatório")
-    private String numero;
-    @NotBlank(message = "Complemento é obrigatório")
-    private String complemento;
-    private String referencia;
+    private Boolean financiado;
     @PastOrPresent(message = "DataCompra é obrigatório e não pode ser compra futura.")
     private LocalDate dataCompra;
     private LocalDate dataFimContrato;
@@ -45,9 +39,10 @@ public class AutomovelRequest {
     private Integer parcelasTotais;
     @PositiveOrZero(message = "ParcelasPagas é obrigatório, caso ainda não tenha nenhuma parcela paga, indicar como 0 (zero).")
     private Integer parcelasPagas;
-    @TipoRestricaoAutomovelValidator(regexp = "DIVIDA|SITUACAO_CADASTRAL|CPF_CANCELADO|CPF_PENDENTE|CPF_NULO")
+    @TipoRestricaoAutomovelValidator(regexp = "IMPOSTO_ATRASADO|SITUACAO_CADASTRAL|FURTADO|PERDA_TOTAL|MULTA")
     private TipoRestricaoAutomovel restricaoAutomovel;
-    @TipoAutomovelValidator(regexp = "CASA|APARTAMENTO|FLAT|KITNET|GALPAO")
+    @TipoAutomovelValidator(regexp = "CARRO|MOTO|SUV|CAMINHONETE|VAN|CAMINHAO|CARRETINHA|ONIBUS")
     private TipoAutomovel tipoAutomovel;
 }
+
 

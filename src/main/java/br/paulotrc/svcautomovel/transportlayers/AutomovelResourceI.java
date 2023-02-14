@@ -52,7 +52,7 @@ public interface AutomovelResourceI {
             @Valid @Size(min = 11, max = 11) @PathVariable("cpf") String cpf
     );
 
-    @Operation(summary = "Obter as infromações do Automovel pelo CEP")
+    @Operation(summary = "Obter as informações do Automovel pelo CEP")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Automóvel encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,

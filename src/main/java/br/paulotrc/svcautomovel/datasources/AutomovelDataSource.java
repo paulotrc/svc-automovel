@@ -24,7 +24,7 @@ public class AutomovelDataSource implements AutomovelRepository {
     private ApiCepRepository apiCepRepository;
 
     public Automovel save(Automovel automovel){
-        ResponseApiCepData data = apiCepRepository.consultarPorCep(automovel.getCep());
+        ResponseApiCepData data = apiCepRepository.consultarPorCep(automovel.getPlaca());
         if(null != data){
             atualizaDadosComDadosRecuperadosDaApi(automovel, data);
             return this.mongoAutomovelRepository.save(automovel);
@@ -36,8 +36,6 @@ public class AutomovelDataSource implements AutomovelRepository {
     private void atualizaDadosComDadosRecuperadosDaApi(Automovel automovel, ResponseApiCepData data) {
         automovel.setEstado(data.getState());
         automovel.setCidade(data.getCity());
-        automovel.setBairro(data.getDistrict());
-        automovel.setEndereco(data.getAddress());
     }
 
     public List<Automovel> findAll(){
