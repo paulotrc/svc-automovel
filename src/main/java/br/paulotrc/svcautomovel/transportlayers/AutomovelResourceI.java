@@ -45,7 +45,7 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
-    @GetMapping (value = "/automovel/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping (value = "/automovel/cliente/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<AutomovelResponse>> get(
             @Parameter(name = "cpf", description = "Número do CPF do Cliente", required = true)
