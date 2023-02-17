@@ -52,7 +52,7 @@ public interface AutomovelResourceI {
             @Valid @Size(min = 11, max = 11) @PathVariable("cpf") String cpf
     );
 
-    @Operation(summary = "Obter as informações do Automovel pelo CEP")
+    @Operation(summary = "Obter as informações do Automovel pela Placa")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Automóvel encontrado",
                     content = {@Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
@@ -71,13 +71,13 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
-    @GetMapping (value = "/automovel/cep/{cep}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping (value = "/automovel/placa/{placa}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
-    ResponseEntity<List<AutomovelResponse>> getPorCep(
-            @Parameter(name = "cep", description = "Cep do automóvel", required = true)
-            @Valid @Size(min = 9, max = 9)
-            @Pattern(regexp = "^\\d{1,5}-\\d{1,3}$", message = "Cep inválido, utilize o seguinte formato: 99999-99.")
-            @PathVariable("cep") String cep
+    ResponseEntity<List<AutomovelResponse>> getPorPlaca(
+            @Parameter(name = "placa", description = "Placa do automóvel", required = true)
+            @Valid @Size(min = 6, max = 7)
+            @Pattern(regexp = "^([a-zA-Z]{2}|[a-zA-Z]{3})[0-9][A-Za-z0-9][0-9]{2}$", message = "Placa inválida, utilize os seguintes formatos: (AA9999|AAA9999|AAA9A99).")
+            @PathVariable("placa") String placa
     );
 
     @Operation(summary = "Obter todas as informações do automóvel")

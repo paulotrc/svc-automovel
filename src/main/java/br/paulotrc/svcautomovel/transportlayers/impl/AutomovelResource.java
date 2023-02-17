@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @RestController
@@ -43,13 +45,15 @@ public class AutomovelResource implements AutomovelResourceI {
     }
 
     @Override
-    public ResponseEntity<List<AutomovelResponse>> getPorCep(
-            @Parameter(name = "cep", description = "Cep do automóvel", required = true)
-            @PathVariable("cep") String cep
+    public ResponseEntity<List<AutomovelResponse>> getPorPlaca(
+            @Parameter(name = "placa", description = "Placa do automóvel", required = true)
+            @Valid @Size(min = 6, max = 7)
+            @Pattern(regexp = "^([a-zA-Z]{2}|[a-zA-Z]{3})[0-9][A-Za-z0-9][0-9]{2}$", message = "Placa inválida, utilize os seguintes formatos: (AA9999|AAA9999|AAA9A99).")
+            @PathVariable("placa") String placa
     ) {
         List<Automovel> automovels = null;
         try {
-            automovels = automovelUseCase.consultarPorCep(cep);
+            automovels = automovelUseCase.consultarPorPlaca(placa);
         }catch (ResourceException e){
             ExceptionUtil.throwException(e);
         }

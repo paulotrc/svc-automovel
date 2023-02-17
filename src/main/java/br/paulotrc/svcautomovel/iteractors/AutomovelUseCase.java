@@ -27,8 +27,8 @@ public class AutomovelUseCase {
         return automovelRepository.consultarPorCpf(cpf);
     }
 
-    public List<Automovel> consultarPorCep(String cep) {
-        return automovelRepository.consultarPorCep(cep);
+    public List<Automovel> consultarPorPlaca(String cep) {
+        return automovelRepository.consultarPorPlaca(cep);
     }
 
     public Boolean cepExiste(String cep){

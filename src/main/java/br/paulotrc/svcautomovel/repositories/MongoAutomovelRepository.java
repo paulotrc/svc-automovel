@@ -12,6 +12,6 @@ public interface MongoAutomovelRepository extends MongoRepository<Automovel, UUI
     @Query("{cpf: { $regex: ?0 } })")
     List<Automovel> consultarPorCpf(String cpf);
 
-    @Query("{cep: { $regex: ?0 } })")
-    List<Automovel> consultarPorCep(String cep);
+    @Query("{placa: { $regex: ?0 } })")
+    List<Automovel> consultarPorPlaca(String cep);
 }
