@@ -58,6 +58,12 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 5
         #failureRateThreshold: 50
         waitDurationInOpenState: 20s
+      processServiceMongo:
+        slidingWindowSize: 50
+        minimumNumberOfCalls: 10
+        permittedNumberOfCallsInHalfOpenState: 5
+        #failureRateThreshold: 50
+        waitDurationInOpenState: 40s
       processService:
         # tamanho da janela deslizante que é usada para registrar o resultado das chamadas quando o CircuitBreaker é fechado
         slidingWindowSize: 50

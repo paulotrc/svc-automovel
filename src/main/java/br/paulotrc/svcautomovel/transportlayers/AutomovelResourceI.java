@@ -2,6 +2,8 @@ package br.paulotrc.svcautomovel.transportlayers;
 
 import br.paulotrc.svcautomovel.transportlayers.dto.request.AutomovelRequest;
 import br.paulotrc.svcautomovel.transportlayers.dto.response.AutomovelResponse;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -45,6 +47,8 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/automovel/cliente/{cpf}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<AutomovelResponse>> get(
@@ -71,6 +75,8 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/automovel/placa/{placa}", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<AutomovelResponse>> getPorPlaca(
@@ -99,6 +105,8 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @GetMapping (value = "/automovel/all", produces = {MediaType.APPLICATION_JSON_VALUE})
     @Valid
     ResponseEntity<List<AutomovelResponse>> getAll();
@@ -116,6 +124,8 @@ public interface AutomovelResourceI {
                             schema = @Schema(implementation = Void.class))}),
 
     })
+    @CircuitBreaker(name = "processServiceMongo", fallbackMethod = "fallback")
+    @Retry(name = "default")
     @PostMapping (value = "/automovel", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<AutomovelResponse> post(@Valid @RequestBody AutomovelRequest automovelRequest);
 
