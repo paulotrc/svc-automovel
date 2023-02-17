@@ -21,15 +21,20 @@ import java.util.UUID;
 public class AutomovelRequest {
 
     private UUID id = UUID.randomUUID();
-
     @NotBlank(message = "CPF é obrigatório")
     private String cpf; //Documento de identificação do dono do automóvel
-
     @NotBlank(message = "Placa é obrigatório")
     @Pattern(regexp = "^([a-zA-Z]{2}|[a-zA-Z]{3})[0-9][A-Za-z0-9][0-9]{2}$", message = "Placa inválida, utilize os seguintes formatos: (AA9999|AAA9999|AAA9A99).")
     private String placa;
-    private String estado;
-    private String cidade;
+    private String renavam;
+    private String categoria;
+    private String combustivel;
+    private String marca;
+    private String modelo;
+    private String anoFabricacao;
+    private String anoModelo;
+    private String cor;
+    private String potencia;
     private Boolean financiado;
     @PastOrPresent(message = "DataCompra é obrigatório e não pode ser compra futura.")
     private LocalDate dataCompra;

@@ -26,8 +26,15 @@ public class Automovel {
     private UUID id = UUID.randomUUID();
     private String cpf; //Documento de identificação do dono do automovel
     private String placa;
-    private String estado;
-    private String cidade;
+    private String renavam;
+    private String categoria;
+    private String combustivel;
+    private String marca;
+    private String modelo;
+    private String anoFabricacao;
+    private String anoModelo;
+    private String cor;
+    private String potencia;
     private Boolean financiado;
     private LocalDate dataCompra;
     private LocalDate dataFimContrato;
