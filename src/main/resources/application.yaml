@@ -52,12 +52,6 @@ logging:
 resilience4j:
   circuitbreaker:
     instances:
-      processServiceApiCep:
-        slidingWindowSize: 50
-        minimumNumberOfCalls: 10
-        permittedNumberOfCallsInHalfOpenState: 5
-        #failureRateThreshold: 50
-        waitDurationInOpenState: 20s
       processServiceMongo:
         slidingWindowSize: 50
         minimumNumberOfCalls: 10
@@ -92,7 +86,3 @@ feign:
       mongo:
         connectTimeout: 40000
         readTimeout: 10000
-
-cep:
-  api:
-    url:  https://cdn.apicep.com/file/apicep/

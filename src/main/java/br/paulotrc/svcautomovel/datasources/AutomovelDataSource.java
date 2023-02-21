@@ -1,7 +1,6 @@
 package br.paulotrc.svcautomovel.datasources;
 
 import br.paulotrc.svcautomovel.entites.Automovel;
-import br.paulotrc.svcautomovel.repositories.ApiCepRepository;
 import br.paulotrc.svcautomovel.repositories.AutomovelRepository;
 import br.paulotrc.svcautomovel.repositories.MongoAutomovelRepository;
 import lombok.AllArgsConstructor;
@@ -17,7 +16,6 @@ public class AutomovelDataSource implements AutomovelRepository {
 
     private final Logger log = LoggerFactory.getLogger(AutomovelDataSource.class);
     private MongoAutomovelRepository mongoAutomovelRepository;
-    private ApiCepRepository apiCepRepository;
 
     public Automovel save(Automovel automovel){
         return this.mongoAutomovelRepository.save(automovel);
